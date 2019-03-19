@@ -11,18 +11,16 @@ module.exports.ls = () => {
 
 module.exports.touch = () => {
     fs.writeFile ('touchfile.txt', 'This is touch file', (err) => {
-        if (err) {
-            return `Error: ${err}`;
-        }
+        if (err) throw err;
         console.log('File created')
-    })
+    });
 };
 
+
+
 module.exports.mkdir = () => {
-    fs.mkdir ('newfolder', (err) => {
-        if (err) {
-            return `Error: ${err}`;
-        }
+    fs.mkdir ('./',{recursive: true}, (err) => {
+        if (err) throw err;
         console.log('Folder created');
-    })
+    });
 };
